@@ -12,9 +12,6 @@ const config: GatsbyConfig = {
     siteTitleAlt: `Juwoong Bae Dev Blog`,
     siteHeadline: `Juwoong's Dev Blog`,
     siteUrl: `https://blog.juwoong.me/`,
-    siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
-    siteImage: `/banner.jpg`,
-    author: `@lekoarts_de`,
   },
   trailingSlash: `never`,
   plugins: [
