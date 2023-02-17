@@ -12,7 +12,8 @@ import {
   lightTheme,
   darkTheme,
 } from "@lekoarts/gatsby-theme-minimal-blog/src/utils/prism-themes";
-import "prismjs/components/prism-rust";
+import "../styles/image.css";
+// import "prismjs/components/prism-rust";
 
 type CodeProps = {
   codeString: string;
