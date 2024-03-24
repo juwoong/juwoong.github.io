@@ -1,7 +1,7 @@
 title: Juwoong
 author:
-  name: GitHub User
-  email: your-email@domain.com
+  name: Juwoong Bae
+  email: to@juwoong.me
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
@@ -33,6 +33,9 @@ header_pages:
 
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
+
+domain: blog.juwoong.me     # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://blog.juwoong.me  # the base hostname and protocol for your site, e.g. http://example.com
 
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:

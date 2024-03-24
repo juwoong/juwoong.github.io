@@ -24,6 +24,10 @@
             <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
             {%- endif -%}
           {%- endfor -%}
+
+          <div class="splitter"></div>
+          <a class="page-link" href="/feed.xml">RSS</a>
+          <a class="page-link" href="https://github.com/juwoong">Github</a>
         </div>
       </nav>
     {%- endif -%}
