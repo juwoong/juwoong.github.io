@@ -34,8 +34,8 @@ header_pages:
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
 
-domain: blog.juwoong.me     # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://blog.juwoong.me  # the base hostname and protocol for your site, e.g. http://example.com
+domain: blog.juwoong.me # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://blog.juwoong.me # the base hostname and protocol for your site, e.g. http://example.com
 
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
@@ -72,5 +72,3 @@ minima:
   #  - { platform: twitter,        user_url: "https://twitter.com/jekyllrb" }
   #  - { platform: x,              user_url: "https://x.com/jekyllrb" }
   #  - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
-
-
