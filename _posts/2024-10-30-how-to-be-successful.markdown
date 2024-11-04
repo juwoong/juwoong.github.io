@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How To Be Successful by Sam Altman"
-date: 2024-10-30 14:40:00
+date: 2024-10-30 14:40:00+0900
 category: idea
 ---
 
