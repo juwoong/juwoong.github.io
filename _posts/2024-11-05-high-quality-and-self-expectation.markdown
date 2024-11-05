@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "새로운 블로그 시작"
+title: "높은 자기 기준에 대한 생각"
 date: 2024-11-05 13:34:00+0900
 category: personal
 ---
