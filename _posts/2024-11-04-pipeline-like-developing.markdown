@@ -3,6 +3,7 @@ layout: post
 title: "파이프라인처럼 개발하기"
 date: 2024-11-04 14:18:00+0900
 category: idea
+tags: idea, engineering
 ---
 
 어떤 기능을 하는 소프트웨어를 개발하려고 할 때, 전통적으로는 다음과 같이 개발하곤 합니다.
