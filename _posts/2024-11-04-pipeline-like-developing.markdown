@@ -7,7 +7,7 @@ category: idea
 
 어떤 기능을 하는 소프트웨어를 개발하려고 할 때, 전통적으로는 다음과 같이 개발하곤 합니다.
 
-![전통적인 방식]({{ "/assets/images/traditional_programming.jpeg" | relative_url }})
+![전통적인 방식]({{ "/assets/images/traditional_programming.webp" | relative_url }})
 
 목표를 달성하기 위한 계획을 작성하고, 계획서를 바탕으로 개발해 나갑니다. 이는 많은 기업들에서 채택하는 방식이지만, 개인적으로 무언가를 개발하거나 빠르게 결과물을 만들어내야 하는 경우에는 오버헤드가 너무 큽니다.
 또한 이렇게 계획을 세우고 개발하기 위해서는, 도메인 전체에 대한 이해가 전제됩니다. 과연 도메인 전체를 완벽하게 이해하고 기획하는 것이 효율적인 방법일까요? 아닐 것입니다.
@@ -21,7 +21,7 @@ $ command1 | command2 | command 3
 bash pipeline은 첫번째 명령어의 output을 두번째 명령어의 input으로 넣어 명령어를 실행합니다. 이게 쭉 이어져서 우리가 원하는 결과물로 이어지도록 만드는 것입니다.
 전통적인 방식과 다른 점은, 내가 원하는 작업의 가장 핵심적인 목표가 무엇인지 인지하고 그것부터 개발하기 시작하는 것입니다.
 
-![제안하는 방식]({{ "/assets/images/pipeline_like_programming.jpeg" | relative_url }})
+![제안하는 방식]({{ "/assets/images/pipeline_like_programming.webp" | relative_url }})
 
 이 방식에서, 개발 전에 정해야 할 사항은 딱 두가지입니다.
 
