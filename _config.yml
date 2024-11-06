@@ -37,6 +37,8 @@ header_pages:
 domain: blog.juwoong.me # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: https://blog.juwoong.me # the base hostname and protocol for your site, e.g. http://example.com
 
+google_analytics: G-NYPLPDJGCE
+
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
   # Minima skin selection.
