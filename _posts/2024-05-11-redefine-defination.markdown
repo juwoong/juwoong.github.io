@@ -2,7 +2,7 @@
 layout: post
 title: "나만의 용어로 정의하기"
 date: 2024-05-11 16:38:00+0900
-category: idea
+tags: [growth, idea, personal]
 ---
 
 어떤 사람이 전문가인지 구분할 수 있는 지표 중 하나는, 나만의 용어로 정의된 개념의 종류라고 생각함.<br>

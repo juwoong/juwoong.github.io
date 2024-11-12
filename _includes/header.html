@@ -24,6 +24,10 @@
             <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
             {%- endif -%}
           {%- endfor -%}
+          <div class="splitter"></div>
+          {%- for tag in site.data.tags -%}
+          <a class="page-link" href="/?tag={{tag}}">#{{ site.data.format[tag] | escape }}</a>
+          {%- endfor -%}
 
           <div class="splitter"></div>
           <a class="page-link" href="/feed.xml">RSS</a>

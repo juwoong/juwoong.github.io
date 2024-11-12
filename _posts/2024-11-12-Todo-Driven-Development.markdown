@@ -2,7 +2,7 @@
 layout: post
 title: "TDD - Todo Driven Development"
 date: 2024-11-12 18:19:00+0900
-category: idea
+tags: [personal, develop]
 ---
 
 나는 하나의 일을 하면서도 계속 새로운 아이디어가 떠오르곤 한다. 이 아이디어가 가끔 떠오르면 모르겠는데, 계속 떠올라서 일 그 자체를 방해하는 경우가 빈번하다.

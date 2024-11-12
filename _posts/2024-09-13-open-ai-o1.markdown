@@ -2,7 +2,7 @@
 layout: post
 title: "OpenAI o1-preview를 보고 얻은 인사이트"
 date: 2024-09-02 11:03:00+0900
-category: idea
+tags: [idea, gpt]
 ---
 
 잠깐 써봤고 보자마자 인지적 프롬프팅 개념과 CTA(인지적 태스크 분석)가 떠올랐다. 흥미로워서 기록으로 남겨둔다.

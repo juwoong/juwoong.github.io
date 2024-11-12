@@ -2,7 +2,7 @@
 layout: post
 title: "How To Be Successful by Sam Altman"
 date: 2024-10-30 14:40:00+0900
-category: idea
+tags: [idea, growth]
 ---
 
 [해당 글](https://blog.samaltman.com/how-to-be-successful)을 GPT로 번역했습니다.
