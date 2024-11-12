@@ -39,6 +39,8 @@ url: https://blog.juwoong.me # the base hostname and protocol for your site, e.g
 
 google_analytics: G-NYPLPDJGCE
 
+permalink: /article/:title
+
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
   # Minima skin selection.
