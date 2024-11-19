@@ -11,16 +11,17 @@ layout: base
     <h1 class="post-title p-name" itemprop="name headline">
       {{ page.title | escape }}
     </h1>
-    <p class="post-meta">
-      {%- assign date_format = site.minima.date_format | default: "%Y/%m/%d" -%}
+    <p class="post-meta meta-content">
+      {%- assign date_format = site.minima.date_format | default: "%Y.%m.%d" -%}
       <time
         class="dt-published"
         datetime="{{ page.date | date_to_xmlschema }}"
         itemprop="datePublished"
       >
-        {{ page.date | date: date_format }} | {% for tag in page.tags %} {% if
-        site.data.tags contains tag %} #{{ site.data.format[tag] }}{% if
-        forloop.last == false %}&nbsp;{%endif%}{%endif%} {% endfor %}
+        {% for tag in page.tags %} {% if site.data.tags contains tag %} {{
+        site.data.format[tag] }}{% if forloop.last == false %}<img
+          src="/assets/images/components/split-dot.svg"
+        />{%endif%}{%endif%} {% endfor %}
       </time>
       {%- if page.modified_date -%} ~ {%- assign mdate = page.modified_date |
       date_to_xmlschema -%}
@@ -35,7 +36,14 @@ layout: base
     </p>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">{{ content }}</div>
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+
+    <div class="endcard">
+      <p class="date">{{ page.date | date: date_format }}</p>
+      <img class="signature" src="/assets/images/logo.svg" />
+    </div>
+  </div>
 
   {%- if site.disqus.shortname -%} {%- include disqus_comments.html -%} {%-
   endif -%}
