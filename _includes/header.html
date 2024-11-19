@@ -4,7 +4,9 @@
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
+    <img class="site-logo" src="/assets/images/logo.svg"/> 
+    </a>
 
     {%- if titles_size > 0 -%}
       <nav class="site-nav">
@@ -24,14 +26,10 @@
             <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
             {%- endif -%}
           {%- endfor -%}
-          <div class="splitter"></div>
-          {%- for tag in site.data.tags -%}
-          <a class="page-link" href="/?tag={{tag}}">#{{ site.data.format[tag] | escape }}</a>
-          {%- endfor -%}
-
-          <div class="splitter"></div>
-          <a class="page-link" href="/feed.xml">RSS</a>
+          <a class="page-link" href="/">Articles</a>
           <a class="page-link" href="https://github.com/juwoong">Github</a>
+
+          <a class="page-link" href="/feed.xml">Subscribe</a>
         </div>
       </nav>
     {%- endif -%}

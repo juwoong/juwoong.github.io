@@ -13,11 +13,12 @@
 
 .site-header {
   position: fixed;
-  left: 0;
-  top: 0;
-  width: 32%;
-  height: 100%;
-  padding-top: 36px;
+  left: 40px;
+  top: 12px;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  padding-top: 8px;
 
   @include media-query($on-medium) {
     width: 100%;
@@ -26,6 +27,13 @@
     padding-left: 8px;
     background-color: white;
   }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  gap: 5rem;
 }
 
 .site-title {
@@ -40,9 +48,6 @@
     color: $site-title-color;
   }
 
-  display: block;
-  text-align: right;
-
   @include media-query($on-palm) {
     padding-right: 45px;
     text-align: left;
@@ -54,14 +59,18 @@
   }
 }
 
+.site-logo {
+  height: 36px;
+}
+
 .site-nav {
-  position: absolute;
   top: 9px;
   right: $spacing-unit * 0.5;
   background-color: $background-color;
   border: 1px solid $border-color-01;
   border-radius: 5px;
-  text-align: right;
+
+  display: flex;
 
   .nav-trigger {
     display: none;
@@ -92,20 +101,18 @@
   input ~ .trigger {
     clear: both;
     display: none;
-    margin-top: 20px;
   }
 
   input:checked ~ .trigger {
     display: block;
     padding-bottom: 5px;
-    margin-top: 20px;
   }
 
   .page-link {
-    color: $text-color;
+    color: $header-text-color;
+    font-family: $header-font-family;
     line-height: $base-line-height;
     display: block;
-    padding: 5px 10px;
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
@@ -115,8 +122,6 @@
   }
 
   @media screen and (min-width: $on-medium) {
-    position: static;
-    float: right;
     border: none;
     background-color: inherit;
 
@@ -129,16 +134,14 @@
     }
 
     input ~ .trigger {
-      display: block;
+      display: flex;
+      gap: 3.125rem;
     }
 
     .page-link {
       // display: inline;
-      padding: 0;
 
-      // &:not(:last-child) {
-      //   margin-right: 20px;
-      // }
+      padding-top: 8px;
       margin-left: auto;
     }
   }
