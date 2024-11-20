@@ -69,7 +69,7 @@
     line-height: 38px;
     @include relative-font-size(1.2);
 
-    background-color: #ffffff;
+    background-color: $lm-background-color;
   }
 }
 
