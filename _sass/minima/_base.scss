@@ -294,3 +294,15 @@ table {
 .hidden {
   display: none;
 }
+
+.MathJax {
+  font-size: 1.2rem !important;
+}
+
+.post-content {
+  p {
+    .MathJax {
+      font-size: 1rem !important;
+    }
+  }
+}
