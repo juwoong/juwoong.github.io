@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "나의 성장 방정식"
-date: 2024-11-23 21:25:00+0900
+date: 2024-11-23 14:54:00+0900
 tags: [personal, growth]
 ---
 
