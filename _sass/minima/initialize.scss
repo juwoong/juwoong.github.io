@@ -7,14 +7,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
 
 @font-face {
-  font-family: "RIDIBatang";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff")
-    format("woff");
-  font-weight: normal;
+  font-family: "BookkMyungjo";
+  src: url("/assets/fonts/BookkMyungjoOTF_Light.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
 }
 
-$base-font-family: "RIDIBatang", "Pretendard Varaible", Pretendard,
+@font-face {
+  font-family: "BookkMyungjo";
+  src: url("/assets/fonts/BookkMyungjoOTF_Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: bold;
+}
+
+$base-font-family: "BookkMyungjo", "Pretendard Varaible", Pretendard,
   -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji",
   "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
 $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono",
@@ -23,6 +29,7 @@ $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono",
 $header-font-family: "Secular One", sans-serif;
 $base-font-size: 16px !default;
 $base-font-weight: 400 !default;
+$bold-font-weight: 700;
 $small-font-size: $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 

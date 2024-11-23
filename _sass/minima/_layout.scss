@@ -410,6 +410,10 @@ ol {
   h6 {
     @include relative-font-size(1);
   }
+
+  p {
+    line-height: 1.8rem;
+  }
 }
 
 .post-content .endcard {
