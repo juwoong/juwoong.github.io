@@ -311,3 +311,7 @@ mjx-container {
   position: relative;
   z-index: 1;
 }
+
+mjx-container > svg {
+  width: 100%;
+}
