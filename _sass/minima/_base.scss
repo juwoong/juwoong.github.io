@@ -304,14 +304,18 @@ table {
     .MathJax {
       font-size: 1rem !important;
     }
+
+    mjx-container > svg {
+      width: 0 auto;
+    }
   }
+}
+
+.post-content > mjx-container > svg {
+  width: 100%;
 }
 
 mjx-container {
   position: relative;
   z-index: 1;
-}
-
-mjx-container > svg {
-  width: 100%;
 }
