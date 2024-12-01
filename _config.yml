@@ -39,6 +39,11 @@ google_analytics: G-NYPLPDJGCE
 
 permalink: /article/:title
 
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM
+
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
   # Minima skin selection.
