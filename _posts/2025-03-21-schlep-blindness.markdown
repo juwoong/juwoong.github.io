@@ -2,7 +2,7 @@
 layout: post
 title: "잡일을 회피하지 않기 (Schlep Blindness)"
 date: 2025-03-11 01:31:00+0900
-tags: [personal, project]
+tags: [personal, idea]
 ---
 
 이 글은 Paul Graham의 [Schlep Blindness](https://www.paulgraham.com/schlep.html)를 Claude를 이용해 번역한 글입니다. 온전히 제가 감명깊어, 제가 보기 위해 옮겼습니다.
