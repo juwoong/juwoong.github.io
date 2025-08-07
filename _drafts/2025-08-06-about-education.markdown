@@ -6,3 +6,5 @@ tags: [personal]
 ---
 
 Get ready to educate everything.
+
+내가 교육에 대해서 어떻게 생각하는지 진짜 줄글로 좌자자자작 적어봅시다.
