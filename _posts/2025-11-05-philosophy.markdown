@@ -3,6 +3,7 @@ layout: post
 title: "철학과 전과사유서"
 date: 2025-11-05 15:42:00+0900
 tags: [personal]
+published: false
 ---
 
 급하게 전과사유서를 작성했지만, 머리가 조금 맑아지는 기분이다.
