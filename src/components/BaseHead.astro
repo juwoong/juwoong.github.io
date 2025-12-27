@@ -4,18 +4,37 @@
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, TAG_LABELS } from '../consts';
 
 interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
+	pubDate?: Date;
+	tags?: string[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
-const ogImage = image?.src ? new URL(image.src, Astro.site) : new URL(FallbackImage.src, Astro.site);
+const { title, description, image, pubDate, tags } = Astro.props;
+
+// 아티클인 경우 동적 OG 이미지 생성, 아니면 기본 이미지 사용
+let ogImage: string;
+if (pubDate) {
+	const dateStr = pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
+	const tagsStr = tags?.map(tag => TAG_LABELS[tag] || tag).join(',') || '';
+	const params = new URLSearchParams({
+		title,
+		date: dateStr,
+		tags: tagsStr,
+		location: 'Seoul, Korea'
+	});
+	ogImage = `https://og-generator-sigma.vercel.app/api/og?${params.toString()}`;
+} else {
+	ogImage = image?.src
+		? new URL(image.src, Astro.site).toString()
+		: new URL(FallbackImage.src, Astro.site).toString();
+}
 ---
 
 <!-- Global Metadata -->
