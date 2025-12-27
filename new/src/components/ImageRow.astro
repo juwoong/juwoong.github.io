@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  images: ImageMetadata[];
+  alts?: string[];
+  gap?: string;
+}
+
+const { images, alts = [], gap = "0.5rem" } = Astro.props;
+---
+
+<div class="image-row" style={`gap: ${gap}`}>
+  {
+    images.map((img, i) => (
+      <div class="image-item">
+        <Image src={img} alt={alts[i] || ""} />
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .image-row {
+    display: flex;
+    width: 100%;
+    margin: 1.5em 0;
+  }
+
+  .image-item {
+    flex: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .image-item :global(img) {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

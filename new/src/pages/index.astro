@@ -1,15 +1,17 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE, TAG_LABELS } from '../consts';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = (await getCollection('blog'))
+	.filter((post) => post.data.publish !== false)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 모든 포스트에서 사용된 태그 수집
+const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))];
 ---
 
 <!doctype html>
@@ -18,71 +20,121 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+				padding-top: 1.5rem;
+				width: 720px;
 			}
 			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
 			}
 			ul li {
-				width: calc(50% - 1rem);
+				padding: 1rem 0;
+				border-bottom: 1px solid rgb(var(--gray-light));
 			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
+			ul li:last-child {
+				border-bottom: none;
 			}
 			ul li a {
 				display: block;
+				text-decoration: none;
+				transition: transform 0.2s ease;
+			}
+			ul li a:hover {
+				transform: translateX(8px);
 			}
 			.title {
-				margin: 0;
+				margin: 0 0 0.25rem 0;
+				color: rgb(var(--gray-dark));
+				font-size: 1.1em;
+				line-height: 1.4;
+				font-weight: 400;
+			}
+			ul li a:hover .title {
 				color: rgb(var(--black));
-				line-height: 1;
 			}
 			.date {
 				margin: 0;
+				color: rgb(var(--gray-date));
+				font-size: 0.9em;
+			}
+			.tabs {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 2rem;
+			}
+			.tab-list {
+				display: flex;
+				gap: 1.5rem;
+			}
+			.tab {
+				padding: 0;
+				padding-bottom: 6px;
+				border: none;
+				border-bottom: 1px solid transparent;
+				background: none;
+				color: rgb(var(--gray-muted));
+				font-size: 0.9em;
+				cursor: pointer;
+				transition: color 0.2s ease, border-color 0.2s ease;
+			}
+			.tab:hover {
+				color: rgba(179, 58, 58, 0.7);
+			}
+			.tab.active {
+				color: #b33a3a;
+				font-weight: 500;
+				border-bottom-color: #b33a3a;
+			}
+			.search-container {
+				position: relative;
+				display: flex;
+				align-items: center;
+			}
+			.search-input {
+				position: absolute;
+				right: 24px;
+				width: 0;
+				padding: 0;
+				border: none;
+				border-bottom: 1px solid transparent;
+				background: white;
+				font-size: 0.9em;
+				color: rgb(var(--black));
+				outline: none;
+				opacity: 0;
+				transition: width 0.3s ease, opacity 0.3s ease, border-color 0.3s ease;
+			}
+			.search-input.active {
+				width: 150px;
+				padding: 0.25rem 0;
+				border-bottom-color: rgb(var(--gray-light));
+				opacity: 1;
+			}
+			.search-input::placeholder {
 				color: rgb(var(--gray));
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
+			.search-btn {
+				padding: 0;
+				border: none;
+				background: none;
+				color: rgb(var(--gray));
+				cursor: pointer;
+				transition: color 0.2s ease;
 			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
+			.search-btn:hover {
+				color: rgb(var(--black));
 			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
+			.search-btn svg {
+				width: 18px;
+				height: 18px;
+			}
+			.post-item {
+				display: block;
+			}
+			.post-item.hidden {
+				display: none;
 			}
 		</style>
 	</head>
@@ -90,17 +142,30 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
+				<div class="tabs">
+					<div class="tab-list">
+						<button class="tab active" data-tag="all">전체</button>
+						{allTags.map((tag) => (
+							<button class="tab" data-tag={tag}>{TAG_LABELS[tag] || tag}</button>
+						))}
+					</div>
+					<div class="search-container">
+						<input type="text" class="search-input" placeholder="검색..." />
+						<button class="search-btn" aria-label="검색">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+							</svg>
+						</button>
+					</div>
+				</div>
 				<ul>
 					{
 						posts.map((post) => (
-							<li>
+							<li class="post-item" data-tags={JSON.stringify(post.data.tags || [])}>
 								<a href={`/articles/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
+										<FormattedDate date={post.data.pubDate} />{post.data.tags && post.data.tags.length > 0 && ` | ${post.data.tags.map(tag => TAG_LABELS[tag] || tag).join(', ')}`}
 									</p>
 								</a>
 							</li>
@@ -109,6 +174,69 @@ const posts = (await getCollection('blog')).sort(
 				</ul>
 			</section>
 		</main>
+		<script>
+			const tabs = document.querySelectorAll('.tab');
+			const posts = document.querySelectorAll('.post-item');
+			const searchBtn = document.querySelector('.search-btn');
+			const searchInput = document.querySelector('.search-input') as HTMLInputElement;
+
+			// 태그 필터
+			tabs.forEach(tab => {
+				tab.addEventListener('click', () => {
+					tabs.forEach(t => t.classList.remove('active'));
+					tab.classList.add('active');
+
+					const selectedTag = tab.getAttribute('data-tag');
+
+					posts.forEach(post => {
+						const postTags = JSON.parse(post.getAttribute('data-tags') || '[]');
+						if (selectedTag === 'all' || postTags.includes(selectedTag)) {
+							post.classList.remove('hidden');
+						} else {
+							post.classList.add('hidden');
+						}
+					});
+				});
+			});
+
+			// 검색 토글
+			searchBtn?.addEventListener('click', () => {
+				searchInput.classList.toggle('active');
+				if (searchInput.classList.contains('active')) {
+					searchInput.focus();
+				} else {
+					searchInput.value = '';
+					filterPosts('');
+				}
+			});
+
+			// 검색 입력
+			searchInput?.addEventListener('input', (e) => {
+				const query = (e.target as HTMLInputElement).value.toLowerCase();
+				filterPosts(query);
+			});
+
+			// 외부 클릭 시 검색창 닫기
+			document.addEventListener('click', (e) => {
+				const target = e.target as HTMLElement;
+				if (!target.closest('.search-container') && searchInput.classList.contains('active')) {
+					searchInput.classList.remove('active');
+					searchInput.value = '';
+					filterPosts('');
+				}
+			});
+
+			function filterPosts(query: string) {
+				posts.forEach(post => {
+					const title = post.querySelector('.title')?.textContent?.toLowerCase() || '';
+					if (query === '' || title.includes(query)) {
+						post.classList.remove('hidden');
+					} else {
+						post.classList.add('hidden');
+					}
+				});
+			}
+		</script>
 		<Footer />
 	</body>
 </html>

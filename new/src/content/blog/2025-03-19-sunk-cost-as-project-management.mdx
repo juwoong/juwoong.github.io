@@ -5,23 +5,15 @@ description: ""
 tags: [personal, project]
 ---
 
+import ImageRow from "../../components/ImageRow.astro";
+import expectationImg from "../../assets/articles/expectation.webp";
+import truthImg from "../../assets/articles/truth.webp";
+
 최근 여러 이유로 프로젝트의 진행 속도가 조금 더뎌졌었고, 그 결과 프로덕트를 대하는 저의 자신감이 훅 떨어져 있는 모습을 발견할 수 있었습니다. 그때 본능적으로 알았습니다. 이대로 가다간 프로젝트가 이도 저도 안 될 것이라는 사실을.
 
 과거에도 저는 늘 "프로젝트는 빠르고 속도감 있게 진행되어야 한다" 라고 주장해 왔었습니다. 하지만 대부분의 경우 그렇게 실제로 행해지는 경우는 없었습니다. 그걸 어떻게 해결해야 하는지는 차치하고 (아마 다음 글이 될 것 같습니다), 왜 그렇게 되는지를 곰곰히 생각해 보았습니다. 그리고 제가 내린 결론은, "우리 생각만큼 자신감 그래프가 우상향하지 않는다"는 것이었습니다.
 
-<div>
-  <div style="display: flex; gap: 0.5rem">
-    <div style="flex: 1; width: 100%; display: grid; place-items: center">
-      <img
-        style="justify-content: center; align-items: center"
-        src="/assets/images/articles/expectation.webp"
-      />
-    </div>
-    <div style="flex: 1; justify-content: center; align-items: center">
-      <img src="/assets/images/articles/truth.webp" />
-    </div>
-  </div>
-</div>
+<ImageRow images={[expectationImg, truthImg]} alts={["기대", "현실"]} />
 
 오른쪽 실제 그래프, 어디서 많이 본 그래프 아닌가요? 네, 더닝-크루거 곡선 (지식의 수준과 자신감의 수준이 그렇게 비례하지 않음을 나타내는 곡선)입니다. 그리고 프로젝트를 빠르게 출시하고 피드백 받지 않는다면, 자연스럽게 자신감 저하의 곡선을 마주하게 됩니다. 그 순간 이제 "퀄리티의 저주"에 빠져들게 됩니다.
 
