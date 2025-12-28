@@ -10,10 +10,11 @@ interface Props {
 
 const { src, alt = "", caption, priority = false } = Astro.props;
 const isLandscape = src.width > src.height;
+const optimizedWidth = isLandscape ? 720 : 480;
 ---
 
 <figure class:list={["figure", { landscape: isLandscape }]}>
-  <Image src={src} alt={alt || caption || ""} loading={priority ? "eager" : "lazy"} decoding="async" />
+  <Image src={src} alt={alt || caption || ""} width={optimizedWidth} loading={priority ? "eager" : "lazy"} decoding="async" />
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
 
