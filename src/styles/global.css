@@ -91,10 +91,11 @@ b {
   font-weight: 700;
 }
 a {
-  color: var(--accent);
+  color: rgb(var(--gray-dark));
+  text-decoration: underline;
 }
 a:hover {
-  color: var(--accent);
+  color: rgb(var(--black));
 }
 p {
   margin-bottom: 1em;
