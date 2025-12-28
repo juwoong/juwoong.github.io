@@ -14,7 +14,7 @@ const optimizedWidth = isLandscape ? 720 : 480;
 ---
 
 <figure class:list={["figure", { landscape: isLandscape }]}>
-  <Image src={src} alt={alt || caption || ""} width={optimizedWidth} loading={priority ? "eager" : "lazy"} decoding="async" />
+  <Image src={src} alt={alt || caption || ""} width={optimizedWidth} decoding="async" />
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
 
