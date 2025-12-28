@@ -9,9 +9,10 @@ interface Props {
 }
 
 const { src, alt = "", caption, priority = false } = Astro.props;
+const isLandscape = src.width > src.height;
 ---
 
-<figure class="figure">
+<figure class:list={["figure", { landscape: isLandscape }]}>
   <Image src={src} alt={alt || caption || ""} loading={priority ? "eager" : "lazy"} decoding="async" />
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
@@ -27,6 +28,10 @@ const { src, alt = "", caption, priority = false } = Astro.props;
     width: 100%;
     height: auto;
     border-radius: 8px;
+  }
+
+  .figure.landscape :global(img) {
+    max-width: 100%;
   }
 
   .figure figcaption {
