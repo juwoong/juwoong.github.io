@@ -12,11 +12,12 @@ interface Props {
 	image?: ImageMetadata;
 	pubDate?: Date;
 	tags?: string[];
+	location?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image, pubDate, tags } = Astro.props;
+const { title, description, image, pubDate, tags, location } = Astro.props;
 
 // 아티클인 경우 동적 OG 이미지 생성, 아니면 기본 이미지 사용
 let ogImage: string;
@@ -27,8 +28,10 @@ if (pubDate) {
 		title,
 		date: dateStr,
 		tags: tagsStr,
-		location: 'Seoul, Korea'
 	});
+	if (location) {
+		params.set('location', location);
+	}
 	ogImage = `https://og-generator-sigma.vercel.app/api/og?${params.toString()}`;
 } else {
 	ogImage = image?.src
