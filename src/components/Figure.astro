@@ -5,13 +5,14 @@ interface Props {
   src: ImageMetadata;
   alt?: string;
   caption?: string;
+  priority?: boolean;
 }
 
-const { src, alt = "", caption } = Astro.props;
+const { src, alt = "", caption, priority = false } = Astro.props;
 ---
 
 <figure class="figure">
-  <Image src={src} alt={alt || caption || ""} />
+  <Image src={src} alt={alt || caption || ""} loading={priority ? "eager" : "lazy"} decoding="async" />
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
 
