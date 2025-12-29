@@ -84,3 +84,12 @@ if (pubDate) {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description || SITE_DESCRIPTION} />
 <meta name="twitter:image" content={ogImage} />
+
+<!-- Google Analytics -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-NYPLPDJGCE"></script>
+<script is:inline>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-NYPLPDJGCE');
+</script>
